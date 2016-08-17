@@ -1,0 +1,17 @@
+<form action="/users" method='post'>
+	<% if flash[:errors] %>
+		<% flash[:errors].each do |message| %>
+			<p><%=message%></p>
+		<% end %>
+	<% end %>
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+	<label>Name:</label>
+	<input name='user[name]' type="text"></input>
+	<label>Email: </label>
+	<input name="user[email]" type="text"></input>
+	<label>Password:</label>
+	<input type="password" name="user[password]"></input>
+	<label>Confirm Password:</label>
+	<input type="password" name="user[password_confirmation]"></input>
+	<button type="submit">Join</button>
+</form>
